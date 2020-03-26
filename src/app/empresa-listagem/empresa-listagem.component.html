@@ -1,0 +1,59 @@
+<div class="row mt-5">
+    <div class="col">
+      <h2>Empresas Cadastradas</h2>
+      <form>
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text" class="form-control" placeholder="Nome da empresa">
+          <label>CNPJ</label>
+          <input type="text" class="form-control" placeholder="CNPJ da empresa">
+        </div>
+        
+        <button type="submit" class="btn btn-default ml-2">Pesquisar</button>
+        <button type="submit" class="btn btn-primary">Novo Cadastro</button>
+        
+      </form>
+    </div>
+  
+  </div>
+  
+  <div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">CNPJ</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of empresas">
+        <td>{{e.id}}</td>
+        <td>{{e.nome}}</td>
+        <td>{{e.cnpj}}</td>
+        <td>
+          <button type="button" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-remove"></span> Remover
+          </button>
+        </td>
+  
+        <td>
+          <img
+            src="../../../app/imagens/bootstrap-icons/icons/trash.svg"
+            style="cursor: pointer;"
+            alt=""
+            width="25"
+            height="25"
+            title="Excluir"
+            ng-click=""
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>    
+  
+  </div>
+  
+  <router-outlet></router-outlet>
