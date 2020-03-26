@@ -1,7 +1,11 @@
+import { HttpClientModule } from '@angular/common/http';
 import { EmpresasService } from "./../empresas.service";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Location } from "@angular/common";
+import {map} from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: "app-incluir-editar-empresa",
@@ -14,7 +18,9 @@ export class IncluirEditarEmpresaComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private service: EmpresasService,
-    private location: Location
+    private location: Location,
+    private http:  HttpClient,
+    
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +46,30 @@ export class IncluirEditarEmpresaComponent implements OnInit {
   }
 
   onCancel() {
-    console.log("cancel");
+    this.location.back();
   }
+
+  consultaCEP(cep) {
+
+
+    cep = cep.replace(/\D/g, '');
+
+
+    if (cep !== '') {
+        this.http.get(`https://viacep.com.br/ws/${cep}/json`)
+
+          .subscribe((data:any) => 
+          { console.log(data); 
+            this.form.get("estado").patchValue(data.uf);
+            this.form.get("cidade").patchValue(data.localidade);
+            this.form.get("bairro").patchValue(data.bairro);
+            this.form.get("logradouro").patchValue(data.logradouro);
+            this.form.get("complemento").patchValue(data.complemento);
+          
+          });
+    }
+  }
+
+
+    
 }

@@ -86,8 +86,8 @@
             id="cep"
             formControlName="cep"
             placeholder="digite o Cep"
+            (blur)="consultaCEP($event.target.value)"
           />
-          <button type="submit" class="btn btn-default ml-2">Buscar CEP</button>
         </div>
       </div>
 
