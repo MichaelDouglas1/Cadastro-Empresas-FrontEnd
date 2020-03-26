@@ -1,0 +1,161 @@
+<div>
+  <div style="overflow-y: auto; overflow-x: hidden; height: 600px">
+    <form
+      class="needs-validation"
+      novalidate
+      [formGroup]="form"
+      style="padding-top: 10px;"
+    >
+      <div class="mx-auto" style="width: 200px;">
+        <h5 class=""></h5>
+      </div>
+      <div class="form-group">
+        <label for="nomeEmpresa">Nome da Empresa: </label>
+        <input
+          type="nome"
+          class="form-control"
+          id="nome_empresa"
+          formControlName="nome"
+          placeholder="Digite o nome da pessoa ..."
+        />
+      </div>
+      <div class="form-group">
+        <label for="CNPJ">CNPJ</label>
+        <input
+          type="text"
+          class="form-control"
+          id="CNPJ"
+          placeholder=""
+          formControlName="cnpj"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          formControlName="email"
+          placeholder="name@example.com"
+        />
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="contato">Contato</label>
+          <input
+            type="text"
+            class="form-control"
+            id="contato"
+            formControlName="contato"
+            placeholder="XXXXX-XXXX"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="razao_social">Razão Social</label>
+          <input
+            type="text"
+            class="form-control"
+            id="razao_social"
+            formControlName="razao_social"
+            placeholder="razão social"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="tipo_empresa">Tipo da empresa</label>
+          <div>
+            <select
+              class="form-control"
+              id="tipo_empresa"
+              formControlName="tipo_empresa"
+            >
+              <option value="matriz">Matriz</option>
+              <option value="filial">Filial</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="cep">CEP</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cep"
+            formControlName="cep"
+            placeholder="digite o Cep"
+          />
+          <button type="submit" class="btn btn-default ml-2">Buscar CEP</button>
+        </div>
+      </div>
+
+      <div class="row1">
+        <div class="form-group">
+          <label for="estado">Estado</label>
+          <input
+            type="text"
+            class="form-control"
+            id="estado"
+            formControlName="estado"
+            placeholder=""
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="cidade">Cidade</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cidade"
+            formControlName="cidade"
+            placeholder=""
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="bairro">Bairro</label>
+          <input
+            type="text"
+            class="form-control"
+            id="bairro"
+            formControlName="bairro"
+            placeholder=""
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="logradouro">Logradouro</label>
+          <input
+            type="text"
+            class="form-control"
+            id="logradouro"
+            formControlName="logradouro"
+            placeholder=""
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="complemento">Complemento</label>
+          <input
+            type="text"
+            class="form-control"
+            id="complemento"
+            formControlName="complemento"
+            placeholder=""
+          />
+        </div>
+      </div>
+
+      <div style="margin-top: 10px;">
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+          Salvar
+        </button>
+        <button type="button" class="btn btn-default" (click)="(onCancel)">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
